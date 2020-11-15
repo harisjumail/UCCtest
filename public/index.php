@@ -114,9 +114,7 @@ include('../config/declaration.php');
 $ac = $_GET['ac'];
 $id = $_GET['id'];
 
-if($ac=="see"){
-
-  
+if($ac=="see"){  
 
 ?>
 
@@ -170,7 +168,8 @@ $row=json_decode($content,true);
         <input type="text" class="form-control" id="location" value = "<?php echo $row['v_location']; ?>" name="location" placeholder="Name">
     </div>
 
-    <button type="submit" name = "save" value = "savechange" class="btn btn-primary">Submit</button>
+    <!-- <button type="submit" name = "save" value = "savechange" disabled="trus" class="btn btn-primary">Submit</button>
+    -->
     </form>
 
 </div>
@@ -214,7 +213,7 @@ $row=json_decode($content,true);
         <input type="text" class="form-control" id="location" name="location" placeholder="Name">
     </div>
 
-    <button type="submit" name = "save" value = "save" class="btn btn-primary">Submit</button>
+    <button type="submit" name = "save"  value = "save" class="btn btn-primary">Submit</button>
     </form>
 
 </div>
@@ -260,26 +259,16 @@ $row=json_decode($content,true);
         elseif($ac == "savechange")
         {
             if($subac =="savechange"){
-              $id = $_POST['id'];
-              $name = $_POST['name'];
-              $engined = $_POST['engined'];
-              $enginep = $_POST['enginep'];
-              $price = $_POST['price'];
-              $location = $_POST['location'];
+                    
+              echo " <script type=\"text/javascript\">
+              alert('canot edited');
+              </script>
+              ";
 
-             // $a = "UPDATE t_main 
-               //     SET v_nama = '$name', v_engined = '$engined', v_enginep = '$enginep',
-                 //   v_price = '$price',v_location = '$location' 
-                 //   WHERE v_id = '$id' ";
-
-              include('../api/create.php');
-
-              $db->query($a);	
-
-              //echo " <script type=\"text/javascript\">
-              //window.location.href = '".$base_url."public/index.php';
-              //</script>
-              //";
+              echo " <script type=\"text/javascript\">
+              window.location.href = '".$base_url."public/index.php';
+              </script>
+              ";
 
           }
 
